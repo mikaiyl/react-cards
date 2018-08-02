@@ -14,48 +14,30 @@ import React from 'react';
  */
 const CardGroup = (props) => (
     <div className="cardGroup">
-        {props.children}
+        { props.children }
     </div>
 );
 
-const Card = (props) => (
-    <div>TODO: Implement Card Component</div>
+const Card = ( props ) => (
+    <div className="card cardGroup__card">
+        <div className="card__description cardGroup__cardDescription">
+            <div className={ `icon fa card__descriptionIcon ${ props.extraClassName }` } />
+            <div className="card__descriptionText">
+                { props.name }
+                <br />
+                { props.description }
+            </div>
+        </div>
+        <div className="card__price"> { props.price } </div>
+    </div>
 );
 
 const App = () => (
-    <div className="cardGroup">
-        <div className="card cardGroup__card">
-            <div className="card__description cardGroup__cardDescription">
-                <div className="icon fa fa-thumbs-o-up card__descriptionIcon" />
-                <div className="card__descriptionText">
-                    Trial
-                </div>
-            </div>
-            <div className="card__price">Free!</div>
-        </div>
-        <div className="card cardGroup__card">
-            <div className="card__description cardGroup__cardDescription">
-                <div className="icon fa fa-trophy card__descriptionIcon" />
-                <div className="card__descriptionText">
-                    Basic tier
-                    <br/>
-                    (most popular)
-                </div>
-            </div>
-            <div className="card__price">$10.00</div>
-        </div>
-        <div className="card cardGroup__card">
-            <div className="card__description cardGroup__cardDescription">
-                <div className="icon fa fa-bolt card__descriptionIcon" />
-                <div className="card__descriptionText">
-                    Advanced tier
-                    <br/>
-                    (only for enterprise-level professionals)
-                </div>
-            </div>
-            <div className="card__price">$6,000.00</div>
-        </div>
-    </div>
-);
+    <CardGroup>
+        <Card  extraClassName='fa-thumbs-o-up'  name='Trial'  description=''  price='Free'  ></Card>
+        <Card  extraClassName='fa-trophy'  name='Basic tier'  description='(most popular)'  price='$10.00'  ></Card>
+        <Card  extraClassName='fa-bolt'  name='Advanced tier'  description='(only for enterprise-level professionals)'  price='$6000.00'  ></Card>
+    </CardGroup>
+)
 
 export default App;
